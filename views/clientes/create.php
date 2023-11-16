@@ -9,6 +9,23 @@
 
 <body>
     <h1>Crear nuevo cliente</h1>
+
+    <form action="/clientes/create" method="post">
+        <div>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre">
+        </div>
+        <div>
+            <label for="apellido">Apellido:</label>
+            <input type="text" id="apellido" name="apellido">
+        </div>
+        <div>
+            <label for="telefono">Teléfono:</label>
+            <input type="number" id="telefono" name="telefono">
+        </div>
+
+        <button type="submit">Guardar</button>
+    </form>
 </body>
 
 </html>

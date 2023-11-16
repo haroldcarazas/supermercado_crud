@@ -15,6 +15,10 @@ if ($method === "POST") {
             $clienteController->delete($_POST["id"]);
             break;
 
+        case '/clientes/create':
+            $clienteController->store($_POST);
+            break;
+
         default:
             echo "NO ENCONTRAMOS LA RUTA.";
             break;
