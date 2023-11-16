@@ -26,4 +26,9 @@ class Cliente
 
         return $data;
     }
+
+    public function destroy($id)
+    {
+        $this->db->query("delete from clientes where id = $id");
+    }
 }

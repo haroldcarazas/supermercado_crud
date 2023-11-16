@@ -7,21 +7,40 @@ $homeController = new HomeController();
 $clienteController = new ClienteController();
 
 $route = $_SERVER["REQUEST_URI"];
+$method = $_SERVER["REQUEST_METHOD"];
 
-switch ($route) {
-    case '/index.php':
-        $homeController->index();
-        break;
+if ($method === "POST") {
+    switch ($route) {
+        case '/clientes/delete':
+            $clienteController->delete($_POST["id"]);
+            break;
 
-    case '/clientes':
-        $clienteController->index();
-        break;
+        default:
+            echo "NO ENCONTRAMOS LA RUTA.";
+            break;
+    }
+}
 
-    case '/empleados':
-        echo "Página de empleados";
-        break;
+if ($method === "GET") {
+    switch ($route) {
+        case '/index.php':
+            $homeController->index();
+            break;
 
-    default:
-        echo "NO ENCONTRAMOS LA RUTA.";
-        break;
+        case '/clientes':
+            $clienteController->index();
+            break;
+
+        case '/clientes/create':
+            $clienteController->create();
+            break;
+
+        case '/empleados':
+            echo "Página de empleados";
+            break;
+
+        default:
+            echo "NO ENCONTRAMOS LA RUTA.";
+            break;
+    }
 }

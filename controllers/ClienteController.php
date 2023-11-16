@@ -11,4 +11,17 @@ class ClienteController
         // var_dump($clientes);
         include $_SERVER["DOCUMENT_ROOT"] . "/views/clientes/read.php";
     }
+
+    public function create()
+    {
+        include $_SERVER["DOCUMENT_ROOT"] . "/views/clientes/create.php";
+    }
+
+    public function delete($id)
+    {
+        $clienteModel = new Cliente();
+        $clienteModel->destroy($id);
+
+        header("Location: /clientes");
+    }
 }

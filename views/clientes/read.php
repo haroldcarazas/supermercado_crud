@@ -10,7 +10,7 @@
 <body>
     <h1>Clientes</h1>
     <p>Aquí verás a todos los clientes de tu supermercado.</p>
-
+    <a href="/clientes/create">CREAR NUEVO CLIENTE</a>
     <table>
         <thead>
             <tr>
@@ -33,7 +33,8 @@
                     <td><?= $cliente["telefono"] ?></td>
                     <td>
                         <a href="/clientes/edit">Editar</a>
-                        <form action="" method="post" style="display: inline;">
+                        <form action="/clientes/delete" method="post" style="display: inline;">
+                            <input type="number" hidden value="<?= $cliente["id"] ?>" name="id">
                             <button type="submit">Eliminar</button>
                         </form>
                     </td>
