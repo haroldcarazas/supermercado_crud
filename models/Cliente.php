@@ -27,6 +27,20 @@ class Cliente
         return $data;
     }
 
+    /**
+     * Método para obtener un registro por su id.
+     *
+     * @param integer $id Id del usuario a buscar.
+     * @return array Arreglo con los datos del usuario.
+     */
+    public function find($id)
+    {
+        $res = $this->db->query("select * from clientes where id = $id");
+        $data = $res->fetch_assoc();
+
+        return $data;
+    }
+
     public function create($data)
     {
         try {
@@ -48,6 +62,18 @@ class Cliente
         } catch (mysqli_sql_exception $e) {
             echo "Error: " . $e->getMessage();
         }
+    }
+
+    public function update($data)
+    {
+        session_start();
+        $res = $this->db->query("
+            update clientes set
+                nombre = '{$data["nombre"]}',
+                apellido = '{$data["apellido"]}',
+                telefono = '{$data["telefono"]}'
+            where id = {$_SESSION["clienteid_edit"]}
+        ");
     }
 
     public function destroy($id)

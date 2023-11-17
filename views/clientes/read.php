@@ -32,7 +32,7 @@
                     <td><?= $cliente["apellido"] ?></td>
                     <td><?= $cliente["telefono"] ?></td>
                     <td>
-                        <a href="/clientes/edit">Editar</a>
+                        <a href="/clientes/edit?id=<?= $cliente["id"] ?>">Editar</a>
                         <form action="/clientes/delete" method="post" style="display: inline;">
                             <input type="number" hidden value="<?= $cliente["id"] ?>" name="id">
                             <button type="submit">Eliminar</button>
