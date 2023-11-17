@@ -11,6 +11,7 @@ $route = explode("?", $_SERVER["REQUEST_URI"]);
 
 $method = $_SERVER["REQUEST_METHOD"];
 
+
 if ($method === "POST") {
     switch ($route[0]) {
         case '/clientes/delete':
