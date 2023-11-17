@@ -20,6 +20,11 @@ class Model
         }
     }
 
+    /**
+     * Método para todos los registros de la tabla.
+     *
+     * @return array Arreglo con todos los registro de la tabla.
+     */
     public function all()
     {
         $res = $this->db->query("select * from {$this->table}");
@@ -31,8 +36,8 @@ class Model
     /**
      * Método para obtener un registro por su id.
      *
-     * @param integer $id Id del usuario a buscar.
-     * @return array Arreglo con los datos del usuario.
+     * @param integer $id Id de la fila (recurso) a buscar.
+     * @return array Arreglo con los datos de la fila o recurso encontrado.
      */
     public function find($id)
     {
@@ -42,6 +47,12 @@ class Model
         return $data;
     }
 
+    /**
+     * Método para crear un nuevo registro en la tabla.
+     *
+     * @param array $data Arreglo asociativo con los datos a ingresar.
+     * @return array Arreglo con los datos de la fila ingresada.
+     */
     public function create($data)
     {
         try {
@@ -68,6 +79,11 @@ class Model
         }
     }
 
+    /**
+     * Método para actualizar un registro en la tabla.
+     *
+     * @param array $data Arreglo asociatvo con los datos a actualizar.
+     */
     public function update($data)
     {
         // Esto hace que sin importar los pares de clave y valor de la variable $data, el $query sea reutilizable.
@@ -82,6 +98,11 @@ class Model
         $this->db->query($query);
     }
 
+    /**
+     * Método para eliminar un registro en la tabla.
+     *
+     * @param integer $id
+     */
     public function destroy($id)
     {
         $this->db->query("delete from {$this->table} where id = $id");

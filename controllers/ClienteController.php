@@ -1,5 +1,6 @@
 <?php
 require_once $_SERVER["DOCUMENT_ROOT"] . "/models/Cliente.php";
+require_once $_SERVER["DOCUMENT_ROOT"] . "/models/Producto.php";
 
 class ClienteController
 {
@@ -9,7 +10,7 @@ class ClienteController
     {
         $this->model = new Cliente();
     }
-    
+
     /**
      * Muestra una vista con todos los clientes.
      */
@@ -34,7 +35,7 @@ class ClienteController
     public function edit($id)
     {
         $cliente = $this->model->find($id);
-        
+
         include $_SERVER["DOCUMENT_ROOT"] . "/views/clientes/edit.php";
     }
 
@@ -56,10 +57,9 @@ class ClienteController
     public function store($request)
     {
         $response = $this->model->create($request);
-        
+
         header("Location: /clientes");
     }
-
 
     /**
      * Eliminar el registro de un cliente y envía al usuario a /clientes.

@@ -1,7 +1,7 @@
 <?php
 require_once $_SERVER["DOCUMENT_ROOT"] . "/models/Model.php";
 
-class Producto extends Model
+class Categoria extends Model
 {
-    protected $table = "productos";
+    protected $table = "categorias";
 }
